@@ -35,7 +35,9 @@ for (let i = 0; i < questionArr.length; i++) {
     questionArr[i].number +
     ">" +
     "<option value=''></option>" +
-    "<option value='1'>"+ answersArr[i].answer1 +"</option>" +
+    "<option value='1'>" +
+    answersArr[i].answer1 +
+    "</option>" +
     "<option value='2'>2</option>" +
     "<option value='3'>3</option>" +
     "<option value='4'>4</option>";
