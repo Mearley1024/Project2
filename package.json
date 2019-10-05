@@ -5,19 +5,23 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "lint": "eslint --quiet .",
-    "fix": "eslint --fix .",
-    "test": "npm run lint && cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit"
+    "lint": "node_modules/.bin/eslint --quiet server.js public/js/*.js",
+    "fix": "node_modules/.bin/eslint --fix server.js public/js/*.js",
+    "test": "npm run lint && cross-env NODE_ENV=test mocha -u bdd --reporter spec --exit"
   },
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.0.0",
     "express": "^4.17.0",
     "express-handlebars": "^3.1.0",
+    "express-session": "^1.16.2",
     "mysql2": "^1.6.5",
+    "passport": "^0.4.0",
+    "passport-auth0": "^1.2.1",
     "sequelize": "^5.8.6"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.3",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "cross-env": "^5.2.0",
