@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 -- DROP DATABASE IF EXISTS plants_db;
 -- CREATE DATABASE plants_db;
 
@@ -23,7 +22,6 @@
 -- );
 
 -- INSERT INTO Plant(plantName) VALUES ('testing');
-=======
 DROP DATABASE IF EXISTS plants_db;
 CREATE DATABASE plants_db;
 
@@ -59,4 +57,3 @@ CREATE TABLE Persons (
     CONSTRAINT PK_Person PRIMARY KEY (ID,LastName)
 );
 
->>>>>>> Stashed changes
