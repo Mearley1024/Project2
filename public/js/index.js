@@ -4,26 +4,54 @@
 var questionArr = [
   {
     number: 1,
-    question: "PLACEHOLDER QUESTION!!!"
+    question: "Have you ever owned any plants before?"
   },
   {
     number: 2,
-    question: "PLACEHOLDER QUESTION!!!"
+    question: "How much sunlight will your plants home be getting?"
   },
   {
     number: 3,
-    question: "PLACEHOLDER QUESTION!!!"
+    question: "Which of these personality traits describes you best?"
   },
   {
     number: 4,
-    question: "PLACEHOLDER QUESTION!!!"
+    question: "Which trait do you feel you can improve in the most?"
   }
 ];
 
 var answersArr = [
   {
     number: 1,
-    answer1: "testing answers"
+    answer1: "Once",
+    answer2: "Never",
+    answer3: "A few",
+    answer4: "Call me a plant God!"
+
+  },
+  {
+    number: 2,
+    answer1: "A lot",
+    answer2: "Somewhat",
+    answer3: "A little",
+    answer4: "None"
+
+  },
+  {
+    number: 3,
+    answer1: "Charming",
+    answer2: "Independent",
+    answer3: "Energetic & Witty",
+    answer4: "Empathetic"
+
+  },
+  {
+    number: 4,
+    answer1: "Impulsiveness",
+    answer2: "Laziness",
+    answer3: "Optomism",
+    answer4: "Temper"
+
   }
 ];
 
@@ -38,9 +66,15 @@ for (let i = 0; i < questionArr.length; i++) {
     "<option value='1'>" +
     answersArr[i].answer1 +
     "</option>" +
-    "<option value='2'>2</option>" +
-    "<option value='3'>3</option>" +
-    "<option value='4'>4</option>";
+    "<option value='2'>" + 
+    answersArr[i].answer2
+    + "</option>" +
+    "<option value='3'>" + 
+    answersArr[i].answer3
+    + "</option>" +
+    "<option value='4'>" + 
+    answersArr[i].answer4
+    + "</option>";
   var newDiv = $("<div>");
   $("#questionDiv")
     .append(newDiv)
@@ -74,13 +108,7 @@ $(document).on("click", "#submit", function() {
         $("#q1").val(),
         $("#q2").val(),
         $("#q3").val(),
-        $("#q4").val(),
-        $("#q5").val(),
-        $("#q6").val(),
-        $("#q7").val(),
-        $("#q8").val(),
-        $("#q9").val(),
-        $("#q10").val()
+        $("#q4").val()
       ]
     };
 
