@@ -1,3 +1,99 @@
+// ----------------------------------------------------------------
+// Question generation
+// ----------------------------------------------------------------
+var questionArr = [
+  {
+    number: 1,
+    question: "PLACEHOLDER QUESTION!!!"
+  },
+  {
+    number: 2,
+    question: "PLACEHOLDER QUESTION!!!"
+  },
+  {
+    number: 3,
+    question: "PLACEHOLDER QUESTION!!!"
+  },
+  {
+    number: 4,
+    question: "PLACEHOLDER QUESTION!!!"
+  }
+];
+
+var answersArr = [
+  {
+    number: 1,
+    answer1: "testing answers"
+  }
+];
+
+for (let i = 0; i < questionArr.length; i++) {
+  var questionNumber = "<h3> Question #" + questionArr[i].number + "</h3>";
+  var question = "<h4>" + questionArr[i].question + "</h4>";
+  var answerOption =
+    "<select data-placeholder='' class='chosen-value' id=q" +
+    questionArr[i].number +
+    ">" +
+    "<option value=''></option>" +
+    "<option value='1'>"+ answersArr[i].answer1 +"</option>" +
+    "<option value='2'>2</option>" +
+    "<option value='3'>3</option>" +
+    "<option value='4'>4</option>";
+  var newDiv = $("<div>");
+  $("#questionDiv")
+    .append(newDiv)
+    .append(questionNumber)
+    .append(question)
+    .append(answerOption);
+}
+
+$(document).on("click", "#submit", function() {
+  function validateForm() {
+    var isValid = true;
+    $(".form-control").each(function() {
+      if ($(this).val() === "") {
+        isValid = false;
+      }
+    });
+
+    $(".chosen-value").each(function() {
+      if ($(this).val() === "") {
+        isValid = false;
+      }
+    });
+    return isValid;
+  }
+
+  if (validateForm()) {
+    var newPlant = {
+      name: $("#name").val(),
+      photo: $("#photo").val(),
+      scores: [
+        $("#q1").val(),
+        $("#q2").val(),
+        $("#q3").val(),
+        $("#q4").val(),
+        $("#q5").val(),
+        $("#q6").val(),
+        $("#q7").val(),
+        $("#q8").val(),
+        $("#q9").val(),
+        $("#q10").val()
+      ]
+    };
+
+    var currentURL = window.location.origin;
+
+    $.post(currentURL + "/api/plants", newPlant, function(data) {
+      console.log(newPlant);
+      $("#matchName").text(data.plantName);
+      $("#matchImage").attr("src", data.plantPic);
+    });
+  }
+});
+// ----------------------------------------------------------------
+// End of question generation
+// ----------------------------------------------------------------
 // Get references to page elements
 var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
