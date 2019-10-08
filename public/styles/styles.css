@@ -1,7 +1,62 @@
-.list-group-item {
-  line-height: 2.5;
+/* Color Scheme */
+/* https://coolors.co/4b7f52-7dd181-96e8bc-b6f9c9-c9ffe2 */
+/*  Body Background = C9FFE2 (AERO BLUE)
+    Jumbotron = 7DD181
+    Jumbotron2 = 96E8BC 
+    Jumbotron3 = B6F9C9
+    Text = Black || 4B7F52
+      */
+/* End Color Scheme */
+
+/* Elements */
+
+a {
+  color: black;
 }
+
+a:hover {
+  color: #4B7F52;
+}
+
+body {
+  background: #C9FFE2;
+}
+
+/* End Elements */
+
+/* Class */
+
 .basicBG {
   background: white;
   width: auto;
 }
+
+.BG {
+  background: #7DD181;
+}
+
+.BG2 {
+  background: #96E8BC;
+}
+
+.BG3 {
+  background: #B6F9C9;
+}
+
+.bodyBackground {
+  background: #C9FFE2;
+}
+
+.jumbotron {
+  border: 2px solid black;
+}
+
+.list-group-item {
+  line-height: 2.5;
+}
+
+/* End Class */
+
+/* ID */
+
+/* End ID */
