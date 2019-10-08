@@ -2,13 +2,13 @@
 <div class="container-fluid">
     <div class="jumbotron shadow-sm BG3">
     <div class="row">
-          <div class="col-5">
+          <div class="col-4">
             <h2 class="text-left logo">Logo</h2>
           </div>
-          <div class="col-2">
+          <div class="col-4">
             <h1 class="text-center pageName">MyPetPlant</h1>
           </div>
-          <div class="col-5">  
+          <div class="col-4">  
             <h2 class="text-right hamburger">Hamburger</h2>
           </div>
     </div>
@@ -18,13 +18,15 @@
       <div class="jumbotron shadow BG">
           <div class="row">
               <div class="col-4 jumbotron BG2">
-              <div class="">
-                  <p>PLANT PICTURE PLACEHOLDER!!!</p>
-                  <p>PLANT NAME PLACEHOLDER!!!</p>
+              <div class="text-center">
+                  <image style="border:1px solid black" class="img-fluid" src="{{Plant.plantPic}}">
+                  <hr>
+                  <p>Here is your beautiful {{Plant.plantName}}</p>
               </div>
               </div>
               <div class="col-1"></div>
               <div class="col-7 jumbotron bodyBackground">
+                  <div class="text-center">Welcome to you plant care page {{User.userName}}!</div>
                   <div class="">PLANT CARE SECTION PLACEHOLDER!!!</div>
               </div>
           </div>

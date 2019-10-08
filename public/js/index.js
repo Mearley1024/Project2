@@ -27,7 +27,6 @@ var answersArr = [
     answer2: "Never",
     answer3: "A few",
     answer4: "Call me a plant God!"
-
   },
   {
     number: 2,
@@ -35,7 +34,6 @@ var answersArr = [
     answer2: "Somewhat",
     answer3: "A little",
     answer4: "None"
-
   },
   {
     number: 3,
@@ -43,7 +41,6 @@ var answersArr = [
     answer2: "Independent",
     answer3: "Energetic & Witty",
     answer4: "Empathetic"
-
   },
   {
     number: 4,
@@ -51,7 +48,6 @@ var answersArr = [
     answer2: "Laziness",
     answer3: "Optomism",
     answer4: "Temper"
-
   }
 ];
 
@@ -66,15 +62,15 @@ for (let i = 0; i < questionArr.length; i++) {
     "<option value='1'>" +
     answersArr[i].answer1 +
     "</option>" +
-    "<option value='2'>" + 
-    answersArr[i].answer2
-    + "</option>" +
-    "<option value='3'>" + 
-    answersArr[i].answer3
-    + "</option>" +
-    "<option value='4'>" + 
-    answersArr[i].answer4
-    + "</option>";
+    "<option value='2'>" +
+    answersArr[i].answer2 +
+    "</option>" +
+    "<option value='3'>" +
+    answersArr[i].answer3 +
+    "</option>" +
+    "<option value='4'>" +
+    answersArr[i].answer4 +
+    "</option>";
   var newDiv = $("<div>");
   $("#questionDiv")
     .append(newDiv)
@@ -101,21 +97,16 @@ $(document).on("click", "#submit", function() {
   }
 
   if (validateForm()) {
-    var newPlant = {
+    var newUser = {
       name: $("#name").val(),
       photo: $("#photo").val(),
-      scores: [
-        $("#q1").val(),
-        $("#q2").val(),
-        $("#q3").val(),
-        $("#q4").val()
-      ]
+      scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val()]
     };
 
-    var currentURL = window.location.origin;
+    // var currentURL = window.location.origin;
 
-    $.post(currentURL + "/api/plants", newPlant, function(data) {
-      console.log(newPlant);
+    $.post("/api/plants", newUser, function(data) {
+      console.log(newUser);
       $("#matchName").text(data.plantName);
       $("#matchImage").attr("src", data.plantPic);
     });

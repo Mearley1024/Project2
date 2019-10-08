@@ -8,8 +8,8 @@
   },
   "test": {
     "username": "root",
-    "password": null,
-    "database": "plants_db",
+    "password": "6Nodagem7!",
+    "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",
     "logging": false

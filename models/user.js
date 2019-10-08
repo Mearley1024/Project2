@@ -12,5 +12,13 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
+
+  User.associate = function(models) {
+    User.belongsTo(models.Plants, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
   return User;
 };
