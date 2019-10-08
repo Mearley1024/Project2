@@ -1,8 +1,8 @@
 -- DROP DATABASE IF EXISTS plants_db;
 -- CREATE DATABASE plants_db;
 
--- DROP DATABASE IF EXISTS testdb;
--- CREATE DATABASE testdb;
+DROP DATABASE IF EXISTS testdb;
+CREATE DATABASE testdb;
 
 -- USE plants_db;
 

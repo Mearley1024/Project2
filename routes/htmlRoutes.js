@@ -1,7 +1,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Load index page
+  // Load home page
   app.get("/", function(req, res) {
     db.Plants.findAll({}).then(function(dbPlant) {
       res.render("index", {
@@ -10,7 +10,7 @@ module.exports = function(app) {
     });
   });
 
-  // Load example page and pass in an example by id
+  // Load survey page
   app.get("/survey", function(req, res) {
     db.Plants.findAll({}).then(function(dbPlant) {
       res.render("survey", {
@@ -19,16 +19,24 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/user", function(req, res) {
-    db.Users.findAll({}).then(function(dbUser) {
+  // Load specific user page
+  app.get("/user/:id", function(req, res) {
+    db.Users.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: [db.Plants]
+    }).then(function(dbUser) {
       res.render("user", {
-        userName: dbUser
+        User: dbUser,
+        Plant: dbUser.Plant
       });
+      console.log(dbUser);
     });
   });
 
   // // Render 404 page for any unmatched routes
-  // app.get("*", function(req, res) {
-  //   res.render("404");
-  // });
+  app.get("*", function(req, res) {
+    res.render("404");
+  });
 };
