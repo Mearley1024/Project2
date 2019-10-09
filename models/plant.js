@@ -1,7 +1,11 @@
 module.exports = function(sequelize, DataTypes) {
   var Plant = sequelize.define("Plants", {
-    plantName: DataTypes.STRING,
-    plantPic: DataTypes.STRING
+    plantName: {
+      type: DataTypes.STRING
+    },
+    plantPic: {
+      type: DataTypes.STRING
+    }
   });
   Plant.associate = function(models) {
     Plant.hasMany(models.Users, {
