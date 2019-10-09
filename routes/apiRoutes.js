@@ -9,7 +9,7 @@ module.exports = function(app) {
   });
 
   // Update user with new plant
-
+  
   // Get all users
   app.get("/api/users", function(req, res) {
     db.Users.findAll({}).then(function(dbUser) {
