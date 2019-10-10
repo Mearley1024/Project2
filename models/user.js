@@ -12,8 +12,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     userEmail: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.STRING
     }
   });
 
