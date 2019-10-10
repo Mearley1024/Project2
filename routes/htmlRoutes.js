@@ -12,12 +12,7 @@ module.exports = function(app) {
 
   // Load Login page
   app.get("/login", function(req, res) {
-    db.Users.findAll({}).then(function(dbUser) {
-      res.render("login", {
-        User: dbUser
-      });
-      console.log(dbUser);
-    });
+    res.render("login");
   });
 
   // Load survey page
