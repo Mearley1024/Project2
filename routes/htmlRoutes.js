@@ -10,6 +10,16 @@ module.exports = function(app) {
     });
   });
 
+  // Load Login page
+  app.get("/login", function(req, res) {
+    db.Users.findAll({}).then(function(dbUser) {
+      res.render("login", {
+        User: dbUser
+      });
+      console.log(dbUser);
+    });
+  });
+
   // Load survey page
   app.get("/survey", function(req, res) {
     db.Plants.findAll({}).then(function(dbPlant) {
@@ -20,7 +30,7 @@ module.exports = function(app) {
   });
 
   // Load specific user page
-  app.get("/user/:id", function(req, res) {
+  app.get("/login/user/:id", function(req, res) {
     db.Users.findOne({
       where: {
         id: req.params.id

@@ -50,13 +50,27 @@ module.exports = function(app) {
 
   // Get all users
   app.get("/api/users", function(req, res) {
-    db.Users.findAll({}).then(function(dbUser) {
+    db.Users.findAll({
+      include: [db.Plants]
+    }).then(function(dbUser) {
+      res.json(dbUser);
+    });
+  });
+
+  // Get one user by userName and userPass
+  app.get("/api/users/:name/:pass", function(req, res) {
+    db.Users.findOne({
+      where: {
+        userName: req.params.name,
+        userPass: req.params.pass
+      }
+    }).then(function(dbUser) {
       res.json(dbUser);
     });
   });
 
   // Create a new user
-  app.post("/api/users/:id", function(req, res) {
+  app.post("/api/user/:id", function(req, res) {
     db.Users.create(req.body).then(function(dbUser) {
       res.json(dbUser);
     });
