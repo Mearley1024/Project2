@@ -59,6 +59,10 @@ body {
   border: 1px solid black;
 }
 
+.carousel {
+  border: 3px solid black;
+}
+
 .hamburger {
   display: block;
 }
@@ -73,6 +77,16 @@ body {
 
 .list-group-item {
   line-height: 2.5;
+}
+
+.loginFade {
+  color: #B6F9C9;
+}
+
+.loginFade:hover {
+  color: black;
+  opacity: 1;
+  animation: FadeIn 2s linear;
 }
 
 .pageName {
