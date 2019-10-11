@@ -71,6 +71,10 @@ body {
   background: gray;
 }
 
+.header {
+  align-items: center;
+}
+
 .jumbotron {
   border: 2px solid black;
 }
