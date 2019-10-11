@@ -80,16 +80,21 @@ $(document).ready(function() {
       .append(questionNumber)
       .append(question)
       .append(answerOption);
-      
   }
+  // ----------------------------------------------------------------
+  // End of question generation
+  // ----------------------------------------------------------------
 
-  // This block starts a listener for the login page
+  // ----------------------------------------------------------------
+  // This block starts the login functionality
+  // ----------------------------------------------------------------
   $(document).on("click", "#submit", handleLogin);
 
   var name;
   var pass;
-  // Function for finding ID of user that logs in
+  // Function for finding ID of user by name/pass
   function handleLogin() {
+    console.log("handle login");
     name = $("#name").val();
     pass = $("#password").val();
     $.ajax({
@@ -99,42 +104,71 @@ $(document).ready(function() {
       window.location = "/login/user/" + response.id;
     });
   }
+  // Timeout for login (used on survey page)
+  function timing() {
+    console.log("handle login");
+    $.ajax({
+      url: "/api/users/" + user + "/" + userPass,
+      method: "GET"
+    }).then(function(response) {
+      window.location = "/login/user/" + response.id;
+    });
+  }
+  // ----------------------------------------------------------------
   // End login page block
+  // ----------------------------------------------------------------
 
-  // $(document).on("click", "#submit", function() {
-  //   function validateForm() {
-  //     var isValid = true;
-  //     $(".form-control").each(function() {
-  //       if ($(this).val() === "") {
-  //         isValid = false;
-  //       }
-  //     });
-
-  //     $(".chosen-value").each(function() {
-  //       if ($(this).val() === "") {
-  //         isValid = false;
-  //       }
-  //     });
-  //     return isValid;
-  //   }
-
-  //   if (validateForm()) {
-  //     var newUser = {
-  //       name: $("#name").val(),
-  //       photo: $("#photo").val(),
-  //       scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val()]
-  //     };
-
-  //     // var currentURL = window.location.origin;
-
-  //     $.post("/api/plants", newUser, function(data) {
-  //       console.log(newUser);
-  //       $("#matchName").text(data.plantName);
-  //       $("#matchImage").attr("src", data.plantPic);
-  //     });
-  //   }
-  // });
+  // ----------------------------------------------------------------
+  // Block for survey page user create and find match
+  // ----------------------------------------------------------------
+  $(document).on("click", "#survey", handleSurvey);
+  var user;
+  var userEmail;
+  var userPass;
+  var score;
+  // This function handles the matching and sends user to their page
+  function handleSurvey() {
+    score = $("#q1").val() + $("#q2").val() + $("#q3").val() + $("#q4").val();
+    $.ajax({
+      url: "/api/plants/" + score,
+      method: "GET"
+    }).then(function(response) {
+      if (response === null) {
+        $.ajax({
+          url: "/api/plants",
+          method: "GET"
+        }).then(function(response) {
+          var plants = response.length;
+          var rand = Math.floor(Math.random() * plants + 1);
+          plantId = rand;
+          handleUser(plantId);
+          setTimeout(timing, 1000);
+        });
+      } else {
+        plantId = response.id;
+        handleUser(plantId);
+        setTimeout(timing, 1000);
+      }
+    });
+  }
+  // End matching code
+  // Function for creating newUser on click
+  function handleUser(plantId) {
+    user = $("#user").val();
+    userEmail = $("#email").val();
+    userPass = $("#password").val();
+    var newuser = {
+      userName: user,
+      userEmail: userEmail,
+      userPass: userPass,
+      score: score,
+      plantId: plantId
+    };
+    $.ajax({
+      url: "/api/users",
+      method: "POST",
+      data: newuser
+    });
+  }
+  // Document Ready end
 });
-
-// ----------------------------------------------------------------
-// End of question generation
