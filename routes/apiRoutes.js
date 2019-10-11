@@ -1,7 +1,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all plants
+  // Get all plants with users
   app.get("/api/plants", function(req, res) {
     db.Plants.findAll({
       include: [db.Users]
