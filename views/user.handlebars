@@ -1,44 +1,62 @@
 <div id="user">
-<div class="container-fluid">
+{{!-- <div class="container-fluid">
     <div class="jumbotron shadow-sm BG3">
     <div class="row">
           <div class="col-4">
-            <h2 class="text-left logo">Logo</h2>
+            <h1 class="text-left logo"><img style="border:1px solid" class="img-fluid" src="/assets/images/PlantHand.jpg"></h1>
           </div>
           <div class="col-4">
-            <h1 class="text-center pageName">MyPetPlant</h1>
+            <h1 class="text-center pageName" style="padding-top:75px">MyPetPlant</h1>
           </div>
           <div class="col-4">  
-            <h2 class="text-right hamburger">Hamburger</h2>
+            <a href="/"><h1 class="float-right goHome fas fa-6x fa-home" style="padding-top:45px"></h1></a>
           </div>
     </div>
   </div>
-  </div>
+  </div> --}}
   <div class="container">
       <div class="jumbotron shadow BG">
           <div class="row">
-              <div class="col-4 jumbotron BG2">
+              <div class="col-12">  
+            <a href="/"><span class="float-right goHome fas fa-2x fa-home" style="margin-top: -50px"></span></a>
+          </div>
+          </div>
+          <div class="row m-scene">
+              <div class="col-md-4 col-12 jumbotron BG2 scene_element scene_element--fadeinleft">
               <div class="text-center">
                   <image style="border:1px solid black" class="img-fluid" src="{{Plant.plantPic}}">
-                  <hr>
-                  <p>Here is your beautiful {{Plant.plantName}}</p>
+                  <br><br><br><br><br>
+                  <h2>Here is your match</h2> 
+                  <h2>{{Plant.plantName}}</h2>
               </div>
               </div>
               <div class="col-1"></div>
-              <div class="col-7 jumbotron bodyBackground">
-                  <div class="text-center">Welcome to you plant care page {{User.userName}}!</div>
-                  <div class="">PLANT CARE SECTION PLACEHOLDER!!!</div>
+              <div class="col-md-7 col-12 jumbotron bodyBackground text-center scene_element scene_element--fadeinright">
+                  <div class="text-center"><h2>Welcome to your plant care page {{User.userName}}!</h2></div>
+                  <br>
+                  <div class="text-center"><h4>Here is what you need to know about your plant match:</h4></div>
+                  <br>
+                  <div class="plantType careBox">Plant Type: {{Plant.plantType}}</div>
+                  <br>
+                  <div class="soil careBox">Soil: {{Plant.soil}}</div>
+                  <br>
+                  <div class="sun careBox">Sun: {{Plant.sun}}</div>
+                  <br>
+                  <div class="water careBox">Water: {{Plant.water}}</div>
+                  <br>
+                  <div class="hardiness careBox">Hardiness: {{Plant.hardiness}}</div>
+
               </div>
           </div>
       </div>
       <br><br>
-      <div class="jumbotron shadow BG">
+      {{!-- <div class="jumbotron shadow BG">
           <div class="row">
               <div class="col-12 jumbotron bodyBackground">
                   <p>PLANT CHECKLIST PLACEHOLDER!!!</p>
               </div>
           </div>
-      </div>
+      </div> --}}
   </div>
   </div>
 

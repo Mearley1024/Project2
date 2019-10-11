@@ -12,14 +12,17 @@
 
 a {
   color: black;
+  text-decoration: none;
 }
 
 a:hover {
   color: #4B7F52;
+  text-decoration: none;
 }
 
 body {
-  background: #C9FFE2;
+  /* background: #C9FFE2; */
+  background: white;
 }
 
 /* End Elements */
@@ -43,8 +46,25 @@ body {
   background: #B6F9C9;
 }
 
+.BG4 {
+  background: rgb(157, 73, 47);
+}
+
 .bodyBackground {
   background: #C9FFE2;
+}
+
+.careBox {
+  color: white;
+  border: 1px solid black;
+}
+
+.hamburger {
+  display: block;
+}
+
+.hardiness {
+  background: gray;
 }
 
 .jumbotron {
@@ -55,8 +75,81 @@ body {
   line-height: 2.5;
 }
 
+.pageName {
+  display: inherit;
+}
+
+.plantType {
+  background: rgb(67, 105, 69);
+}
+
+.soil {
+  background: brown;
+}
+
+.sun {
+  background: orange;
+}
+
+.surveyBtn {
+  border-radius: 5px;
+  transition: border-radius 2s;
+}
+
+.surveyBtn:hover {
+  color: black;
+  border-radius: 40px;
+  transition: border-radius 1s;
+}
+
+.surveyText:hover {
+  color: black;
+}
+
+.water {
+  background: rgb(155, 155, 233);
+}
+
 /* End Class */
 
 /* ID */
 
 /* End ID */
+
+/* Keyframes */
+
+@keyframes FadeIn {
+  0% {
+      opacity: 0;
+  }
+
+  100% {
+      opacity: 1;
+  }
+}
+
+@keyframes FadeInRight {
+  0% {
+      opacity: 0;
+      transform: translate3d(100%, 0, 0);
+  }
+
+  100% {
+      opacity: 1;
+      transform: none;
+  }
+}
+
+@keyframes FadeInLeft {
+  0% {
+      opacity: 0;
+      transform: translate3d(-100%, 0, 0);
+  }
+
+  100% {
+      opacity: 1;
+      transform: none;
+  }
+}
+
+/* End Keyframes */

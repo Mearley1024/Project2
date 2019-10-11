@@ -3,11 +3,7 @@ var db = require("../models");
 module.exports = function(app) {
   // Load home page
   app.get("/", function(req, res) {
-    db.Plants.findAll({}).then(function(dbPlant) {
-      res.render("index", {
-        plantName: dbPlant
-      });
-    });
+    res.render("index");
   });
 
   // Load Login page
@@ -17,11 +13,7 @@ module.exports = function(app) {
 
   // Load survey page
   app.get("/survey", function(req, res) {
-    db.Plants.findAll({}).then(function(dbPlant) {
-      res.render("survey", {
-        plantName: dbPlant
-      });
-    });
+    res.render("survey");
   });
 
   // Load specific user page

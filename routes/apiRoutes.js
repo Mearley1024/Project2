@@ -10,43 +10,17 @@ module.exports = function(app) {
     });
   });
 
-  // // Update plant with new user
-  // app.post("/api/plants", function(req, res) {})
-  //           // contains compatibility logic
-  //           var bestMatch = {
-  //             name: "",
-  //             photo: "",
-  //             matchSpread: 100
-  //         };
-
-  //         console.log(req.body);
-
-  //         var newData = req.body;
-  //         var newScores = newData.scores;
-
-  //         console.log(newScores);
-
-  //         var totalSpread = 0;
-
-  //         for (var i = 0; i < friends.length; i++) {
-  //             totalSpread = 0;
-  //             for (var x = 0; x < friends[i].scores[x]; x++) {
-  //                 totalSpread += Math.abs(parseInt(newScores[x]) - parseInt(friends[i].scores[x]));
-
-  //             if (totalSpread <= bestMatch.matchSpread) {
-  //                 bestMatch.name = friends[i].name;
-  //                 bestMatch.photo = friends[i].photo;
-  //                 bestMatch.matchSpread = totalSpread;
-  //             }
-  //             }
-  //         }
-
-  //         friends.push(newData);
-
-  //         res.json(bestMatch);
-
-  // });
-  // compatibility end
+  // Get plant by score
+  app.get("/api/plants/:score", function(req, res) {
+    db.Plants.findOne({
+      where: {
+        score: req.params.score
+      }
+    }).then(function(dbPlant) {
+      console.log(dbPlant);
+      res.json(dbPlant);
+    });
+  });
 
   // Get all users
   app.get("/api/users", function(req, res) {
@@ -54,6 +28,18 @@ module.exports = function(app) {
       include: [db.Plants]
     }).then(function(dbUser) {
       res.json(dbUser);
+    });
+  });
+
+  // Create a new user
+  app.post("/api/users", function(req) {
+    console.log(req.body);
+    db.Users.create({
+      userName: req.body.userName,
+      userEmail: req.body.userEmail,
+      userPass: req.body.userPass,
+      score: req.body.score,
+      PlantId: req.body.plantId
     });
   });
 
